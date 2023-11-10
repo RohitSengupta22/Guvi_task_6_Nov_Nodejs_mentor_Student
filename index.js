@@ -1,12 +1,13 @@
 const express = require('express')
 const ConnectToDb = require('./DB/Connection.js')
 const app = express()
-const port = 3000
+require('dotenv').config();
 const Router = require('./Routes/Routers.js')
-
+const port = process.env.PORT || 3000;
 ConnectToDb();
 
 app.use(express.json());
+
 
 app.get('/', (req, res) => {
   res.send('Welcome to the class')
